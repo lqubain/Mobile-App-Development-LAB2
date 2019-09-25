@@ -27,17 +27,16 @@ public class FormActivity extends AppCompatActivity {
         findViewById(R.id.saveButton).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(nameEditText.getText().toString()!=null && emailEditText.getText().toString()!=null && passEditText.getText().toString()!=null && passConfEditText.getText().toString()!=null){
+                if(!nameEditText.getText().toString().isEmpty() && !emailEditText.getText().toString().isEmpty() && !passEditText.getText().toString().isEmpty() && !passConfEditText.getText().toString().isEmpty()){
                     final String name = nameEditText.getText().toString();
                     final String email = emailEditText.getText().toString();
                     final String pass;
                     if (passEditText.getText().toString().equals(passConfEditText.getText().toString())){
                         pass =  passEditText.getText().toString();
                     } else  Toast.makeText(getApplicationContext(),"Passwords do not match",Toast.LENGTH_SHORT).show();
-
+                    Toast.makeText(getApplicationContext(),"Username: "+nameEditText.getText().toString() ,Toast.LENGTH_SHORT).show();
                 } else Toast.makeText(getApplicationContext(),"Please enter all information",Toast.LENGTH_SHORT).show();
 
-                Toast.makeText(getApplicationContext(),"Username: "+nameEditText.getText().toString() ,Toast.LENGTH_SHORT).show();
             }
         });
 
